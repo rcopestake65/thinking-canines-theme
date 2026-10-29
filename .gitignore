@@ -1,0 +1,13 @@
+# Static design reference (to be moved out of the theme)
+/thinking-canines-site/
+
+# OS / editor files
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+
+# Dependencies and logs
+node_modules/
+*.log

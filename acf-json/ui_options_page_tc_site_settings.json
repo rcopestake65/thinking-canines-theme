@@ -1,0 +1,26 @@
+{
+    "key": "ui_options_page_tc_site_settings",
+    "title": "Site Settings",
+    "active": true,
+    "menu_order": 0,
+    "page_title": "Site Settings",
+    "menu_slug": "site-settings",
+    "parent_slug": "none",
+    "advanced_configuration": false,
+    "icon_url": "",
+    "menu_title": "Site Settings",
+    "position": 59,
+    "redirect": false,
+    "description": "Contact details, social links and footer content used across the site.",
+    "menu_icon": {
+        "type": "dashicons",
+        "value": "dashicons-pets"
+    },
+    "update_button": "Update",
+    "updated_message": "Options Updated",
+    "capability": "edit_pages",
+    "data_storage": "options",
+    "post_id": "",
+    "autoload": true,
+    "modified": 1793271997
+}
