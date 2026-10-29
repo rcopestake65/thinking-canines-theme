@@ -26,7 +26,7 @@ $tc_others   = get_posts( array(
 
 	<section class="page-hero page-hero--sm">
 		<div class="testimonials-hero__inner container">
-			<div class="page-hero__inner">
+			<div class="page-hero__inner animate-down">
 				<?php if ( tc_field( 'eyebrow' ) ) : ?>
 					<p class="eyebrow"><?php echo esc_html( tc_field( 'eyebrow' ) ); ?></p>
 				<?php endif; ?>
@@ -45,7 +45,7 @@ $tc_others   = get_posts( array(
 				$tc_dog   = tc_field( 'dog', $tc_featured );
 				$tc_year  = tc_field( 'year', $tc_featured );
 				?>
-				<figure class="testimonial-feature">
+				<figure class="testimonial-feature animate-up">
 					<span class="testimonial-feature__mark" aria-hidden="true">“</span>
 					<blockquote class="testimonial-feature__quote">
 						<?php if ( tc_field( 'lead', $tc_featured ) ) : ?>
@@ -70,7 +70,7 @@ $tc_others   = get_posts( array(
 				<div class="testimonial-grid">
 					<?php foreach ( $tc_others as $tc_testimonial ) : ?>
 						<?php $tc_year = tc_field( 'year', $tc_testimonial ); ?>
-						<figure class="testimonial-card">
+						<figure class="testimonial-card animate-up">
 							<span class="testimonial-card__mark" aria-hidden="true">“</span>
 							<blockquote class="testimonial-card__quote flow">
 								<?php if ( tc_field( 'lead', $tc_testimonial ) ) : ?>
@@ -87,7 +87,7 @@ $tc_others   = get_posts( array(
 			<?php endif; ?>
 
 			<?php if ( tc_field( 'cta_text' ) ) : ?>
-				<div class="testimonials__cta">
+				<div class="testimonials__cta animate-up">
 					<p class="testimonials__cta-text"><?php echo esc_html( tc_field( 'cta_text' ) ); ?></p>
 					<?php tc_button( tc_field( 'cta_button' ), 'purple' ); ?>
 				</div>

@@ -20,7 +20,7 @@ $tc_title      = $tc_posts_page ? get_the_title( $tc_posts_page ) : __( 'Blog', 
 <main id="primary">
 
 	<section class="page-hero page-hero--xs">
-		<div class="page-hero__inner container">
+		<div class="page-hero__inner container animate-down">
 			<?php if ( $tc_eyebrow ) : ?>
 				<p class="eyebrow"><?php echo esc_html( $tc_eyebrow ); ?></p>
 			<?php endif; ?>
@@ -37,7 +37,7 @@ $tc_title      = $tc_posts_page ? get_the_title( $tc_posts_page ) : __( 'Blog', 
 		the_post();
 		?>
 		<section class="post-feature">
-			<a href="<?php the_permalink(); ?>" class="post-feature__card card">
+			<a href="<?php the_permalink(); ?>" class="post-feature__card card animate-up">
 				<span class="post-feature__media">
 					<?php if ( has_post_thumbnail() ) : ?>
 						<?php the_post_thumbnail( 'large', array( 'alt' => '', 'sizes' => '(max-width: 900px) 100vw, 680px' ) ); ?>

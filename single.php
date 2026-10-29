@@ -25,7 +25,7 @@ while ( have_posts() ) :
 		<article <?php post_class(); ?>>
 
 			<header class="page-hero page-hero--xs">
-				<div class="post-hero__inner container">
+				<div class="post-hero__inner container animate-down">
 					<a href="<?php echo esc_url( $tc_blog_url ); ?>" class="post-hero__back">
 						<?php echo tc_icon( 'arrow-left', 18 ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 						<?php
@@ -42,13 +42,13 @@ while ( have_posts() ) :
 			</header>
 
 			<?php if ( has_post_thumbnail() ) : ?>
-				<div class="post-image">
+				<div class="post-image animate-fade">
 					<?php the_post_thumbnail( 'large', array( 'sizes' => '(max-width: 1300px) 100vw, 1240px', 'loading' => 'eager' ) ); ?>
 				</div>
 			<?php endif; ?>
 
 			<div class="section section--flush-top">
-				<div class="post-body prose">
+				<div class="post-body prose animate-up">
 					<?php the_content(); ?>
 				</div>
 
@@ -82,7 +82,7 @@ while ( have_posts() ) :
 		<?php if ( $tc_related ) : ?>
 			<section class="section section--gold">
 				<div class="related container">
-					<h2 class="section-title"><?php esc_html_e( 'Keep reading', 'thinking-canines' ); ?></h2>
+					<h2 class="section-title animate-up"><?php esc_html_e( 'Keep reading', 'thinking-canines' ); ?></h2>
 					<div class="post-grid">
 						<?php
 						foreach ( $tc_related as $tc_post ) {

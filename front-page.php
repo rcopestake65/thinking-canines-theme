@@ -18,7 +18,7 @@ $tc_badge_link    = tc_field( 'hero_badge_link' );
 
 	<section class="hero">
 		<div class="hero__inner container">
-			<div class="hero__content">
+			<div class="hero__content animate-left">
 				<?php if ( tc_field( 'hero_eyebrow' ) ) : ?>
 					<p class="eyebrow"><?php echo esc_html( tc_field( 'hero_eyebrow' ) ); ?></p>
 				<?php endif; ?>
@@ -39,7 +39,7 @@ $tc_badge_link    = tc_field( 'hero_badge_link' );
 			</div>
 
 			<?php if ( $tc_hero_image ) : ?>
-				<div class="hero__media">
+				<div class="hero__media animate-right">
 					<div class="hero__backdrop" aria-hidden="true"></div>
 					<?php
 					echo wp_get_attachment_image( $tc_hero_image, 'large', false, array(
@@ -62,7 +62,7 @@ $tc_badge_link    = tc_field( 'hero_badge_link' );
 
 	<section class="section section--cream">
 		<div class="features container">
-			<div class="section-head">
+			<div class="section-head animate-up">
 				<h2 class="section-title"><?php echo esc_html( tc_field( 'features_title' ) ); ?></h2>
 				<?php if ( tc_field( 'features_intro' ) ) : ?>
 					<p class="features__intro"><?php echo esc_html( tc_field( 'features_intro' ) ); ?></p>
@@ -72,7 +72,7 @@ $tc_badge_link    = tc_field( 'hero_badge_link' );
 			<?php if ( tc_field( 'features' ) ) : ?>
 				<div class="features__grid">
 					<?php foreach ( tc_field( 'features' ) as $tc_feature ) : ?>
-						<div class="feature">
+						<div class="feature animate-up">
 							<div class="feature__icon">
 								<?php
 								echo 'paw' === $tc_feature['icon']
@@ -88,7 +88,7 @@ $tc_badge_link    = tc_field( 'hero_badge_link' );
 			<?php endif; ?>
 
 			<?php if ( tc_field( 'trust_text' ) || tc_field( 'trust_badges' ) ) : ?>
-				<div class="trust-bar">
+				<div class="trust-bar animate-up">
 					<p class="trust-bar__text"><?php echo esc_html( tc_field( 'trust_text' ) ); ?></p>
 					<?php if ( tc_field( 'trust_badges' ) ) : ?>
 						<div class="trust-bar__badges">
@@ -105,11 +105,11 @@ $tc_badge_link    = tc_field( 'hero_badge_link' );
 	<section class="section">
 		<div class="split container">
 			<?php if ( tc_field( 'meet_gallery' ) ) : ?>
-				<div class="meet__gallery">
+				<div class="meet__gallery animate-left">
 					<?php tc_gallery( tc_field( 'meet_gallery' ), tc_field( 'meet_gallery_label' ) ?: __( 'Photos', 'thinking-canines' ) ); ?>
 				</div>
 			<?php endif; ?>
-			<div class="meet__content">
+			<div class="meet__content animate-right">
 				<?php if ( tc_field( 'meet_eyebrow' ) ) : ?>
 					<p class="eyebrow"><?php echo esc_html( tc_field( 'meet_eyebrow' ) ); ?></p>
 				<?php endif; ?>
@@ -125,13 +125,13 @@ $tc_badge_link    = tc_field( 'hero_badge_link' );
 	<?php if ( $tc_services ) : ?>
 		<section class="section section--gold">
 			<div class="services-preview container">
-				<div class="section-head">
+				<div class="section-head animate-up">
 					<h2 class="section-title"><?php echo esc_html( tc_field( 'services_title' ) ); ?></h2>
 					<?php tc_button( tc_field( 'services_button' ), 'purple', array( 'arrow' => true ) ); ?>
 				</div>
 				<div class="svc-grid">
 					<?php foreach ( $tc_services as $tc_i => $tc_service ) : ?>
-						<a href="<?php echo esc_url( get_permalink( $tc_services_page ) . ( $tc_service['anchor'] ? '#' . sanitize_title( $tc_service['anchor'] ) : '' ) ); ?>" class="svc-card card">
+						<a href="<?php echo esc_url( get_permalink( $tc_services_page ) . ( $tc_service['anchor'] ? '#' . sanitize_title( $tc_service['anchor'] ) : '' ) ); ?>" class="svc-card card animate-up">
 							<?php
 							if ( $tc_service['card_image'] ) {
 								echo wp_get_attachment_image( $tc_service['card_image'], 'medium_large', false, array( 'class' => 'svc-card__img', 'loading' => 'lazy' ) );
@@ -156,7 +156,7 @@ $tc_badge_link    = tc_field( 'hero_badge_link' );
 		?>
 		<section class="quote-band">
 			<?php echo tc_icon( 'paw', 0, array( 'class' => 'quote-band__watermark' ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-			<figure class="quote-band__figure">
+			<figure class="quote-band__figure animate-up">
 				<span class="quote-band__mark" aria-hidden="true">“</span>
 				<blockquote class="quote-band__quote"><?php echo esc_html( tc_field( 'short_quote', $tc_testimonial ) ?: tc_field( 'lead', $tc_testimonial ) ); ?></blockquote>
 				<figcaption class="quote-band__caption">

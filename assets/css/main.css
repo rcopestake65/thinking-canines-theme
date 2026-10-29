@@ -111,9 +111,31 @@ img {
   display: none !important;
 }
 
-/* GSAP: hide animated elements until main.js reveals them. */
-.js [data-animate] {
+/*
+ * GSAP scroll animations (see assets/js/main.js). Hide animated elements
+ * until main.js reveals them; without JS they simply show.
+ *   .animate-up     rises in from below
+ *   .animate-down   drops in from above
+ *   .animate-left   slides in from the left
+ *   .animate-right  slides in from the right
+ *   .animate-fade   fades in on the spot
+ */
+.js .animate-up,
+.js .animate-down,
+.js .animate-left,
+.js .animate-right,
+.js .animate-fade {
   visibility: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js .animate-up,
+  .js .animate-down,
+  .js .animate-left,
+  .js .animate-right,
+  .js .animate-fade {
+    visibility: visible;
+  }
 }
 
 .screen-reader-text {
@@ -162,6 +184,8 @@ img {
 /* Keep the footer at the bottom of short pages. */
 .site > main {
   flex: 1;
+  /* Stop elements sliding in from the sides causing a horizontal scrollbar. */
+  overflow-x: clip;
 }
 
 .container {

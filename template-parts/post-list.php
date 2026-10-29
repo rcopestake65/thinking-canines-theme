@@ -19,7 +19,7 @@ $tc_has_more = have_posts();
 				?>
 			</div>
 		<?php elseif ( 0 === $GLOBALS['wp_query']->post_count ) : ?>
-			<p class="empty-state"><?php esc_html_e( 'No posts yet – check back soon.', 'thinking-canines' ); ?></p>
+			<p class="empty-state animate-fade"><?php esc_html_e( 'No posts yet – check back soon.', 'thinking-canines' ); ?></p>
 		<?php endif; ?>
 
 		<?php tc_pagination(); ?>

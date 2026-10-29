@@ -15,7 +15,7 @@ $tc_shortcode = trim( (string) tc_field( 'form_shortcode' ) );
 <main id="primary">
 
 	<section class="page-hero page-hero--sm">
-		<div class="page-hero__inner container">
+		<div class="page-hero__inner container animate-down">
 			<?php if ( tc_field( 'eyebrow' ) ) : ?>
 				<p class="eyebrow"><?php echo esc_html( tc_field( 'eyebrow' ) ); ?></p>
 			<?php endif; ?>
@@ -29,7 +29,7 @@ $tc_shortcode = trim( (string) tc_field( 'form_shortcode' ) );
 	<section class="section section--flush-top">
 		<div class="contact container">
 
-			<div class="contact__details">
+			<div class="contact__details animate-left">
 				<?php if ( $tc_whatsapp ) : ?>
 					<a href="<?php echo esc_url( tc_whatsapp_url() ); ?>" class="contact-card card">
 						<span class="contact-card__icon" aria-hidden="true"><?php echo tc_icon( 'whatsapp', 26 ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></span>
@@ -67,7 +67,7 @@ $tc_shortcode = trim( (string) tc_field( 'form_shortcode' ) );
 				<?php endif; ?>
 			</div>
 
-			<div class="enquiry">
+			<div class="enquiry animate-right">
 				<div class="enquiry__head">
 					<?php if ( tc_field( 'form_title' ) ) : ?>
 						<h2 class="enquiry__title"><?php echo esc_html( tc_field( 'form_title' ) ); ?></h2>

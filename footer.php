@@ -14,7 +14,7 @@ $tc_footer_cta      = tc_option( 'footer_cta_title' );
 		<div class="site-footer__inner">
 
 			<?php if ( $tc_footer_cta ) : ?>
-				<div class="footer-cta">
+				<div class="footer-cta animate-up">
 					<h2 class="footer-cta__title"><?php echo esc_html( $tc_footer_cta ); ?></h2>
 					<div class="btn-row">
 						<?php tc_button( tc_option( 'footer_cta_primary' ), 'gold' ); ?>
@@ -23,7 +23,7 @@ $tc_footer_cta      = tc_option( 'footer_cta_title' );
 				</div>
 			<?php endif; ?>
 
-			<div class="site-footer__main">
+			<div class="site-footer__main animate-up">
 				<div class="site-footer__brand">
 					<img src="<?php echo esc_url( TC_THEME_URI . '/assets/images/thinking-canines-logo.svg' ); ?>" alt="<?php echo esc_attr( sprintf( /* translators: %s: site name. */ __( '%s logo', 'thinking-canines' ), get_bloginfo( 'name' ) ) ); ?>" class="site-footer__logo" width="120" height="120" loading="lazy">
 					<?php if ( tc_option( 'tagline' ) ) : ?>

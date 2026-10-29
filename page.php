@@ -13,13 +13,13 @@ while ( have_posts() ) :
 
 	<main id="primary">
 		<section class="page-hero page-hero--xs">
-			<div class="page-hero__inner container">
+			<div class="page-hero__inner container animate-down">
 				<h1 class="page-title page-title--compact"><?php the_title(); ?></h1>
 			</div>
 		</section>
 
 		<section class="section section--flush-top">
-			<div class="post-body prose">
+			<div class="post-body prose animate-up">
 				<?php the_content(); ?>
 			</div>
 		</section>

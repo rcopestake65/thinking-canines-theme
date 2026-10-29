@@ -297,7 +297,7 @@ function tc_card_excerpt( $post = null ) {
 function tc_post_card( $post = null ) {
 	$post = get_post( $post );
 	?>
-	<a href="<?php the_permalink( $post ); ?>" class="post-card card">
+	<a href="<?php the_permalink( $post ); ?>" class="post-card card animate-up">
 		<span class="post-card__media">
 			<?php if ( has_post_thumbnail( $post ) ) : ?>
 				<?php echo get_the_post_thumbnail( $post, 'medium_large', array( 'alt' => '', 'loading' => 'lazy' ) ); ?>
