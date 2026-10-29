@@ -19,6 +19,11 @@ while ( have_posts() ) :
 		'post__not_in'   => array( get_the_ID() ),
 		'category__in'   => wp_get_post_categories( get_the_ID() ),
 	) );
+	$tc_latest  = get_posts( array(
+		'post_type'      => 'post',
+		'posts_per_page' => 3,
+		'post__not_in'   => array( get_the_ID() ),
+	) );
 	?>
 
 	<main id="primary">
@@ -48,33 +53,59 @@ while ( have_posts() ) :
 			<?php endif; ?>
 
 			<div class="section section--flush-top">
-				<div class="post-body prose animate-up">
-					<?php the_content(); ?>
-				</div>
-
-				<?php
-				wp_link_pages( array(
-					'before' => '<nav class="pagination post-footer" aria-label="' . esc_attr__( 'Post pages', 'thinking-canines' ) . '"><div class="nav-links">',
-					'after'  => '</div></nav>',
-				) );
-				?>
-
-				<footer class="post-footer">
-					<?php if ( has_tag() ) : ?>
-						<div class="post-footer__tags">
-							<?php foreach ( get_the_tags() as $tc_tag ) : ?>
-								<a href="<?php echo esc_url( get_tag_link( $tc_tag ) ); ?>" class="pill pill--sm"><?php echo esc_html( $tc_tag->name ); ?></a>
-							<?php endforeach; ?>
+				<div class="post-layout<?php echo $tc_latest ? ' post-layout--sidebar' : ''; ?> container">
+					<div class="post-layout__main">
+						<div class="post-body prose animate-up">
+							<?php the_content(); ?>
 						</div>
-					<?php endif; ?>
-					<a href="<?php echo esc_url( $tc_blog_url ); ?>" class="btn btn--outline">
+
 						<?php
-						/* translators: %s: blog page title. */
-						echo esc_html( sprintf( __( 'More from the %s', 'thinking-canines' ), strtolower( $tc_blog_title ) ) );
+						wp_link_pages( array(
+							'before' => '<nav class="pagination post-footer" aria-label="' . esc_attr__( 'Post pages', 'thinking-canines' ) . '"><div class="nav-links">',
+							'after'  => '</div></nav>',
+						) );
 						?>
-						<?php echo tc_icon( 'arrow', 18 ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-					</a>
-				</footer>
+
+						<footer class="post-footer">
+							<?php if ( has_tag() ) : ?>
+								<div class="post-footer__tags">
+									<?php foreach ( get_the_tags() as $tc_tag ) : ?>
+										<a href="<?php echo esc_url( get_tag_link( $tc_tag ) ); ?>" class="pill pill--sm"><?php echo esc_html( $tc_tag->name ); ?></a>
+									<?php endforeach; ?>
+								</div>
+							<?php endif; ?>
+							<a href="<?php echo esc_url( $tc_blog_url ); ?>" class="btn btn--outline">
+								<?php
+								/* translators: %s: blog page title. */
+								echo esc_html( sprintf( __( 'More from the %s', 'thinking-canines' ), strtolower( $tc_blog_title ) ) );
+								?>
+								<?php echo tc_icon( 'arrow', 18 ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+							</a>
+						</footer>
+					</div>
+
+					<?php if ( $tc_latest ) : ?>
+						<aside class="post-sidebar animate-right" aria-labelledby="post-sidebar-title">
+							<h2 id="post-sidebar-title" class="post-sidebar__title"><?php esc_html_e( 'Latest posts', 'thinking-canines' ); ?></h2>
+							<ul class="post-sidebar__list">
+								<?php foreach ( $tc_latest as $tc_post ) : ?>
+									<li>
+										<a href="<?php echo esc_url( get_permalink( $tc_post ) ); ?>" class="mini-post">
+											<span class="mini-post__media">
+												<?php if ( has_post_thumbnail( $tc_post ) ) : ?>
+													<?php echo get_the_post_thumbnail( $tc_post, 'medium_large', array( 'alt' => '', 'sizes' => '(max-width: 900px) 100vw, 360px' ) ); ?>
+												<?php else : ?>
+													<?php echo tc_icon( 'paw', 0, array( 'class' => 'mini-post__paw', 'fill' => '#2C2053' ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+												<?php endif; ?>
+											</span>
+											<span class="mini-post__title"><?php echo esc_html( get_the_title( $tc_post ) ); ?></span>
+										</a>
+									</li>
+								<?php endforeach; ?>
+							</ul>
+						</aside>
+					<?php endif; ?>
+				</div>
 			</div>
 
 		</article>

@@ -54,3 +54,30 @@ function tc_field( $name, $post_id = false ) {
 function tc_option( $name ) {
 	return tc_field( $name, 'option' );
 }
+
+/**
+ * Pass each image's "Image focus" setting (Media Library) to the CSS as
+ * --tc-focus, which cropped images use for their object-position.
+ *
+ * @param array   $attr       Image attributes.
+ * @param WP_Post $attachment Attachment post.
+ * @return array
+ */
+function tc_image_focus_attribute( $attr, $attachment ) {
+	$positions = array(
+		'top'    => '50% 0%',
+		'center' => '50% 50%',
+		'bottom' => '50% 100%',
+		'left'   => '0% 50%',
+		'right'  => '100% 50%',
+	);
+	$focus     = tc_field( 'focus', $attachment->ID );
+
+	if ( $focus && isset( $positions[ $focus ] ) ) {
+		$style         = isset( $attr['style'] ) ? rtrim( $attr['style'], '; ' ) . '; ' : '';
+		$attr['style'] = $style . '--tc-focus: ' . $positions[ $focus ];
+	}
+
+	return $attr;
+}
+add_filter( 'wp_get_attachment_image_attributes', 'tc_image_focus_attribute', 10, 2 );

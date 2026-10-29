@@ -1,0 +1,60 @@
+{
+    "key": "group_tc_media",
+    "title": "Image settings",
+    "fields": [
+        {
+            "key": "field_tc_media_focus",
+            "label": "Image focus",
+            "name": "focus",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "Which part of the photo to keep when it is cropped to fit a card or banner. Leave on Default unless an important part (such as a head) is being cut off.",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "": "Default (just above centre)",
+                "top": "Top",
+                "center": "Centre",
+                "bottom": "Bottom",
+                "left": "Left",
+                "right": "Right"
+            },
+            "default_value": false,
+            "allow_null": 0,
+            "return_format": "value",
+            "ui": 0,
+            "multiple": 0,
+            "ajax": 0,
+            "placeholder": "",
+            "create_options": 0,
+            "save_options": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "attachment",
+                "operator": "==",
+                "value": "image"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "display_title": "",
+    "allow_ai_access": false,
+    "ai_description": "",
+    "modified": 1793290351
+}

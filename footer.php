@@ -25,7 +25,15 @@ $tc_footer_cta      = tc_option( 'footer_cta_title' );
 
 			<div class="site-footer__main animate-up">
 				<div class="site-footer__brand">
-					<img src="<?php echo esc_url( TC_THEME_URI . '/assets/images/thinking-canines-logo.svg' ); ?>" alt="<?php echo esc_attr( sprintf( /* translators: %s: site name. */ __( '%s logo', 'thinking-canines' ), get_bloginfo( 'name' ) ) ); ?>" class="site-footer__logo" width="120" height="120" loading="lazy">
+					<?php
+					$tc_footer_logo = '<img src="' . esc_url( TC_THEME_URI . '/assets/images/thinking-canines-logo.svg' ) . '" alt="' . esc_attr( sprintf( /* translators: %s: site name. */ __( '%s logo', 'thinking-canines' ), get_bloginfo( 'name' ) ) ) . '" class="site-footer__logo" width="120" height="120" loading="lazy">';
+					?>
+					<?php if ( is_front_page() ) : ?>
+						<?php echo $tc_footer_logo; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+					<?php else : ?>
+						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="site-footer__logo-link" aria-label="<?php echo esc_attr( sprintf( /* translators: %s: site name. */ __( '%s – home', 'thinking-canines' ), get_bloginfo( 'name' ) ) ); ?>"><?php echo $tc_footer_logo; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></a>
+					<?php endif; ?>
+
 					<?php if ( tc_option( 'tagline' ) ) : ?>
 						<p class="site-footer__tagline"><?php echo esc_html( tc_option( 'tagline' ) ); ?></p>
 					<?php endif; ?>
