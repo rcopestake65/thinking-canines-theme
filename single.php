@@ -68,11 +68,12 @@ while ( have_posts() ) :
 
 						<footer class="post-footer">
 							<?php if ( has_tag() ) : ?>
-								<div class="post-footer__tags">
+								<nav class="post-footer__tags" aria-labelledby="post-tags-label">
+									<span id="post-tags-label" class="post-footer__tags-label"><?php esc_html_e( 'Tagged:', 'thinking-canines' ); ?></span>
 									<?php foreach ( get_the_tags() as $tc_tag ) : ?>
-										<a href="<?php echo esc_url( get_tag_link( $tc_tag ) ); ?>" class="pill pill--sm"><?php echo esc_html( $tc_tag->name ); ?></a>
+										<a href="<?php echo esc_url( get_tag_link( $tc_tag ) ); ?>" class="pill pill--sm" rel="tag"><?php echo esc_html( $tc_tag->name ); ?></a>
 									<?php endforeach; ?>
-								</div>
+								</nav>
 							<?php endif; ?>
 							<a href="<?php echo esc_url( $tc_blog_url ); ?>" class="btn btn--outline">
 								<?php

@@ -120,6 +120,10 @@ $tc_footer_cta      = tc_option( 'footer_cta_title' );
 			</div>
 		</div>
 	</footer>
+
+	<button type="button" class="back-to-top" data-action="backToTop" aria-label="<?php esc_attr_e( 'Back to top', 'thinking-canines' ); ?>">
+		<?php echo tc_icon( 'arrow-up', 22 ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+	</button>
 </div><!-- #page -->
 
 <?php wp_footer(); ?>

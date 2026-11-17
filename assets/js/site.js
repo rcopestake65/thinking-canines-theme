@@ -145,4 +145,33 @@
 			x0 = null;
 		} );
 	} );
+
+	// Back-to-top button: shown once the visitor has scrolled past the threshold.
+	var toTop = document.querySelector( '[data-action="backToTop"]' );
+	if ( toTop ) {
+		var threshold = 600;
+		var ticking = false;
+		var updateToTop = function () {
+			toTop.classList.toggle( 'is-visible', window.scrollY > threshold );
+			ticking = false;
+		};
+		window.addEventListener( 'scroll', function () {
+			if ( ! ticking ) {
+				ticking = true;
+				window.requestAnimationFrame( updateToTop );
+			}
+		}, { passive: true } );
+		updateToTop();
+
+		toTop.addEventListener( 'click', function () {
+			var reduce = window.matchMedia( '(prefers-reduced-motion: reduce)' ).matches;
+			window.scrollTo( { top: 0, behavior: reduce ? 'auto' : 'smooth' } );
+			// Send keyboard focus back to the top of the page too.
+			var page = document.getElementById( 'page' );
+			if ( page ) {
+				page.setAttribute( 'tabindex', '-1' );
+				page.focus( { preventScroll: true } );
+			}
+		} );
+	}
 } )();

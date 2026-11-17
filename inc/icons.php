@@ -60,6 +60,11 @@ function tc_icon( $name, $size = 24, $args = array() ) {
 			$attrs = $stroke . ' stroke-width="2.4"';
 			$body  = '<path d="M19 12H5M11 6l-6 6 6 6"/>';
 			break;
+		case 'arrow-up':
+			$view  = '0 0 24 24';
+			$attrs = $stroke . ' stroke-width="2.4"';
+			$body  = '<path d="M12 19V5M6 11l6-6 6 6"/>';
+			break;
 		case 'chevron-left':
 			$view  = '0 0 24 24';
 			$attrs = $stroke . ' stroke-width="2.6"';

@@ -65,7 +65,7 @@ $tc_badge_link    = tc_field( 'hero_badge_link' );
 			<div class="section-head animate-up">
 				<h2 class="section-title"><?php echo esc_html( tc_field( 'features_title' ) ); ?></h2>
 				<?php if ( tc_field( 'features_intro' ) ) : ?>
-					<p class="features__intro"><?php echo esc_html( tc_field( 'features_intro' ) ); ?></p>
+					<p class="features__intro"><?php echo wp_kses( tc_field( 'features_intro' ), array( 'strong' => array(), 'em' => array() ) ); ?></p>
 				<?php endif; ?>
 			</div>
 
